@@ -1,0 +1,45 @@
+@model DiaryEntryData
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h2>Edit DiaryEntry</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditDiary" method="post">
+                        <div asp-validation-summary="All" class="text-red">
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Title">Title</label>
+                            <input asp-for="Title" class="form-control" placeholder="Enter asp-action title" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Content">Content</label>
+                            <input asp-for="Content" row="5" class="form-control" placeholder="Enter What you did" />
+                            <span asp-validation-for="Content" class="text-red"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="CreatedDate">Date</label>
+                            <input asp-for="CreatedDate" class="form-control" type="date" />
+                            <span asp-validation-for="CreatedDate" class="text-red"></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <a asp-asp-controller="DiaryEntry" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}
